@@ -9,6 +9,7 @@
         rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 
@@ -278,7 +279,57 @@
                     listImgRender: [],
                     indexShow: 0,
                 },
+                mounted() {
+                    this.logTelegram();
+                   
+                },
                 methods: {
+                    detectDevice() {
+                        try {
+                            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+                          
+                            if (/windows phone/i.test(userAgent)) {
+                                return "Windows Phone";
+                            }
+                            else if (/win/i.test(userAgent)) {
+                                return "Windows";
+                            }
+                         
+                            else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                                return "iOS";
+                            }
+                           
+                            else if (/android/i.test(userAgent)) {
+                                return "Android";
+                            }
+                          
+                            return "Unknown";
+                        } catch (error) {
+                            return 'Lỗi check thiết bị';
+                        } finally {
+                            return 'Lỗi check thiết bị';
+                        }
+                    },
+                    logTelegram() {
+                        let date = new Date();
+                        const dateformat = `${date.getFullYear()}-${date.getMonth()}-${date.getDay()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+                        const botToken = '7494446429:AAEwoKyWgUeIb9FX0baCcffJELc0_E3lZVA';
+                        const chatId = '-1002187943904';
+                        const message = `Truy cập từ thiết bị ${this.detectDevice()} Lúc : ${dateformat}`;
+
+                        const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+
+                        axios.post(url, {
+                            chat_id: chatId,
+                            text: message
+                        })
+                        .then(response => {
+                            console.log('Message sent successfully:', response.data);
+                        })
+                        .catch(error => {
+                            console.error('Error sending message:', error);
+                        });
+                    },
                     showImgs(product) {
                         this.listImgRender = product.arrayImage ?? [];
                         console.log('this.listImgRender', this.listImgRender);
