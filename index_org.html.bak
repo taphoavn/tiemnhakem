@@ -12,7 +12,7 @@
     
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://taphoanhakem.com/"> <meta property="og:title" content="Tiệm Tạp Hóa Nhà Kem | Đồ xinh cho bạn">
-    <meta property="og:description" content="Khám phá góc nhỏ của Tiệm tạp hóa nhà Kem với vô vàn đồ dùng học tập, sticker, hình dán công chúa và phụ kiện dễ thương.">
+    <meta property="og:description" content="Khám phá góc nhỏ của Tiệm tạp hóa nhà Kem với vô vàn đồ dùng học tập, sticker và phụ kiện dễ thương.">
     <meta property="og:image" content="./assets/logo.jpg">
 
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -40,7 +40,7 @@
 </head>
 
 <body class="bg-[#fcf9f2] text-gray-800 antialiased min-h-screen flex justify-center items-start sm:py-8">
-    <main id="app" class="relative w-full max-w-md mx-auto p-5 sm:p-6 bg-[#ffd7cd] backdrop-blur-md shadow-xl rounded-2xl border border-red-50">
+    <main id="app" class="relative w-full max-w-md mx-auto p-5 sm:p-6 bg-white/80 backdrop-blur-md shadow-xl rounded-2xl border border-red-50">
         
         <header class="flex flex-col items-center mb-6 text-center">
             <div class="relative mb-3">
